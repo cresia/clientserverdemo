@@ -1,18 +1,19 @@
 $(document).ready(startApp);
 
 function startApp(){
-  getData();
-  getFood();
+  getNameData();
+  getFoodData();
 
 
 }
 
-function getFood() {
+function getFoodData() {
   var settings = {
-    url: '../server/getFoods.json',
+    // url: '../server/getFoods.json',
+    url: 'http://localhost:3002/favFoods',
     method: 'GET',
     dataType: 'json',
-    success: handleDataFromServer,
+    success: handleFoodDataFromServer,
 
 
   }
@@ -21,12 +22,14 @@ function getFood() {
 
 }
 
-function getData(){
+
+function getNameData(){
   var settings = {
-    url: '../server/getnames.json',
+    // url: '../server/getnames.json',
+    url: 'http://localhost:3002/names',
     method: 'GET',
     dataType: 'json',
-    success: handleDataFromServer,
+    success: handleNameDataFromServer,
 
 
   }
@@ -35,7 +38,20 @@ function getData(){
 
 }
 
-function handleDataFromServer(response){
+function handleNameDataFromServer(response) {
+  console.log("name data from server",response);
+
+  for(var index = 0; index < response.length; index++){
+    var nameDiv = $("<div>").text(response[index].name);
+    $("body").append(nameDiv);
+
+  }
+
+
+}
+
+function handleFoodDataFromServer(response) {
   console.log(response);
+
 
 }

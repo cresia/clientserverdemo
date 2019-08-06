@@ -1,11 +1,14 @@
 [
   {
-    "ice cream": 3
+    "FoodName": "ice cream",
+    "age": 3
   },
   {
-    "chips": 6
+    "FoodName":"chips",
+    "age": 6
   },
   {
-    "chocolate": 8
+    "FoodName":"chocolate",
+    "age":8
   }
 ]
